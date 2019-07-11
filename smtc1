@@ -1,0 +1,91 @@
+procedure Test1;
+var NFTC1:olevariant;
+var NFTC2:olevariant;
+begin
+
+//NameMapping.Sys.explorer.wndShell_TrayWnd.TrayNotifyWnd.TrayShowDesktopButtonWClass.Click(0, 16);
+
+NameMapping.Sys.explorer.wndProgman.SHELLDLL_DefView.FolderView.DblClickItem('TestEnvironment(TD32)',0);
+NameMapping.Sys.explorer.dlg.btn_.ClickButton;
+
+if NameMapping.Sys.TestEnvironment_TD32_.FMain <> nil then 
+begin
+  NameMapping.Sys.TestEnvironment_TD32_.FMain.Maximize;
+  NameMapping.Sys.TestEnvironment_TD32_.FMain.dxRibbon.ClickItemXY('dxRibbonTab1|[0]|Форма редакторов', 33, 7);
+  NFTC1 := NameMapping.Sys.TestEnvironment_TD32_.FMain.MDIClient.FEdits.sbMain;
+
+  if (NFTC1.vscroll.pos <> 0) and (NFTC1.vscroll <> nil) then
+  begin
+     NFTC1.VScroll.Pos := 0;
+  end;
+
+  NFTC1.pMainPanel.mTest.mTestEdit.TcxCustomInnerMemo.Click();
+  NFTC1.pMainPanel.mTest.mTestEdit.TcxCustomInnerMemo.clear;
+  NFTC1.pMainPanel.mTest.mTestEdit.TcxCustomInnerMemo.Keys('ввести произвольный текст в поле Memo');
+  NFTC1.pButtonsPanel.TcxButton.ClickButton;
+  NFTC1.pLabelsPanel.TcxLabel.Click();
+
+  NFTC1.pMainPanel.edTest.edTestEdit.TcxCustomInnerTextEdit.Click();
+  NFTC1.pMainPanel.edTest.edTestEdit.TcxCustomInnerTextEdit.clear;
+  NFTC1.pMainPanel.edTest.edTestEdit.TcxCustomInnerTextEdit.SetText('ввести произвольный текст');
+  NFTC1.pButtonsPanel.TcxButton2.ClickButton;
+
+  NFTC1.pButtonsPanel.TcxButton3.ClickButton;
+  NFTC1.pMainPanel.cbTest.Checked := true;
+  NFTC1.pButtonsPanel.TcxButton3.ClickButton;
+
+  NFTC1.pMainPanel.ceTest.ceTestEdit.click();
+  NFTC1.pMainPanel.ceTest.ceTestEdit.clear;
+  NFTC1.pMainPanel.ceTest.ceTestEdit.Keys('12515');
+  NFTC1.pButtonsPanel.TcxButton4.ClickButton;
+  
+  NFTC1.pMainPanel.ccbTest.ccbTestEdit.Click();
+  NFTC1.pMainPanel.ccbTest.ccbTestEdit.SelectedItem;
+  NFTC1.pMainPanel.ccbTest.ccbTestEdit.Keys('[Down][Enter]');
+  NFTC1.pMainPanel.ccbTest.ccbTestEdit.properties.emptyselectiontext := 'Name1';
+  NFTC1.pButtonsPanel.TcxButton9.ClickButton;
+
+  NFTC1.pMainPanel.seTest.seTestEdit.TcxCustomInnerTextEdit.Click();
+  NFTC1.pMainPanel.seTest.seTestEdit.TcxCustomInnerTextEdit.Clear;
+  NFTC1.pMainPanel.seTest.seTestEdit.TcxCustomInnerTextEdit.Keys('1111');
+  NFTC1.pButtonsPanel.TcxButton6.ClickButton;
+
+  NFTC1.pMainPanel.deTest.deTestEdit.TcxCustomDropDownInnerEdit.Click();
+  NFTC1.pMainPanel.deTest.deTestEdit.TcxCustomDropDownInnerEdit.clear;
+  NFTC1.pMainPanel.deTest.deTestEdit.TcxCustomDropDownInnerEdit.Keys('11.07.2019');
+  NFTC1.pButtonsPanel.TcxButton5.ClickButton;
+
+  NFTC1.pMainPanel.peTest.peTestProgress.Click();
+  NFTC1.pMainPanel.peTest.peTestProgress.Keys('89');
+  NFTC1.pMainPanel.peTest.peTestUp.Click();
+  NFTC1.pButtonsPanel.TcxButton7.ClickButton;
+
+  NFTC1.pMainPanel.lueTest.lueTestEdit.SetFocus;
+  NFTC1.pMainPanel.lueTest.lueTestEdit.TcxCustomComboBoxInnerEdit.Keys('~[Down][Down][Enter]');
+  NFTC1.pMainPanel.lueTest.lueTestEdit.TcxCustomComboBoxInnerEdit.Refresh;
+  NFTC1.pMainPanel.lueTest.lueTestEdit.TcxCustomComboBoxInnerEdit.Keys('~[Down][Down][Down][Down][Up][Enter]');
+  NFTC1.pButtonsPanel.TcxButton8.ClickButton;
+
+  //Не смог поймать pagecontrol для закрытия вкладки, использовал recorder
+  NameMapping.Sys.TestEnvironment_TD32_.FMain.MDIClient.Click(147, 896);
+  
+  
+// Тест-кейс №2
+
+  NameMapping.Sys.TestEnvironment_TD32_.FMain.dxRibbon.ClickItemXY('dxRibbonTab1|[0]|Форма с TreeList', 75, 7);
+  NFTC2 := NameMapping.Sys.TestEnvironment_TD32_.FMain.MDIClient;
+
+  if (NFTC2.vscroll.pos <> 0) and (NFTC2.vscroll <> nil) then
+  begin
+     NFTC2.VScroll.Pos := 0;
+  end;
+
+  NFTC2.FTreeList.tlTest.SetFocus;
+
+  NFTC2.FTreeList.tlTest.DataController.LocateByKey('24');
+  NFTC2.FTreeList.tlTest.DataController.LocateByKey('17');
+  
+  NameMapping.Sys.TestEnvironment_TD32_.Close();
+end;
+
+end;
