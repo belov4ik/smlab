@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{24B6FA0B-0143-461A-9758-AEB9E9A9428B}" version="14.0" key="{EE7097F4-21FB-47A9-9B9E-3F526D950F4D}">
+	<children>
+		<child name="SM_belov_TS1" key="{03BE1625-F78A-48DD-9094-7FF89B1A7BB0}" path="SM_belov_TS1\SM_belov_TS1.mds" />
+	</children>
+	<testItems key="{9E0B19CC-C689-42DD-B1DE-863906F1F77C}">
+		<children>
+			<testItem key="{03BE1625-F78A-48DD-9094-7FF89B1A7BB0}" enabled="True" timeout="0" stopOnError="True" description="" />
+		</children>
+	</testItems>
+	<variables key="{AEB4C85E-1E3F-413D-A97B-E921C802475E}">
+		<data Version="3" />
+	</variables>
+	<analysis key="{0E3BBBDB-C058-4989-90E6-B9A5D3511CEB}" />
+	<scc key="{00000000-0000-0000-0000-000000000000}" name="">
+		<data />
+	</scc>
+	<extender key="{1A3FC97E-9A66-4716-B166-35D10B4146E0}">
+		<CrossBrowserTesting Enable="False" />
+	</extender>
+</Root>
